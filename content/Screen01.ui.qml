@@ -33,16 +33,43 @@ Rectangle {
             id: scene
             DirectionalLight {
                 id: directionalLight
+                x: -391.793
+                y: 134.465
+                scale.z: 0.375
+                scale.y: 0.375
+                scale.x: 0.375
+                castsShadow: true
+                brightness: 5.49
+                eulerRotation.z: 62.44928
+                eulerRotation.y: -46.29249
+                eulerRotation.x: 3.85748
+                z: 749.1521
             }
 
             PerspectiveCamera {
                 id: sceneCamera
+                x: 0
+                y: 0
                 z: 350
             }
 
             Scene {
                 id: robot
                 eulerRotation.y: robotSlider.value
+            }
+
+            Model {
+                id: cube
+                x: 246.415
+                y: 52.522
+                source: "#Cube"
+                receivesShadows: true
+                castsShadows: false
+                scale.z: 1.79335
+                scale.y: 1.10341
+                scale.x: 1.72227
+                materials: defaultMaterial
+                z: -78.9791
             }
         }
 
