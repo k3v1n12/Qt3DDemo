@@ -42,7 +42,18 @@ Rectangle {
 
             Scene {
                 id: robot
+                eulerRotation.y: robotSlider.value
             }
+        }
+
+        Slider {
+            id: robotSlider
+            y: 466
+            opacity: 0
+            anchors.fill: parent
+            to: 180
+            from: -180
+            value: 0
         }
     }
 
