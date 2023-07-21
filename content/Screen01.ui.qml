@@ -9,6 +9,7 @@ import QtQuick 6.5
 import QtQuick.Controls 6.5
 import QtQuick3D 6.5
 import Qt3DDemo
+import Quick3DAssets.Scene
 
 Rectangle {
     width: Constants.width
@@ -39,12 +40,8 @@ Rectangle {
                 z: 350
             }
 
-            Model {
-                id: cubeModel
-                eulerRotation.y: 45
-                eulerRotation.x: 30
-                materials: defaultMaterial
-                source: "#Cube"
+            Scene {
+                id: robot
             }
         }
     }
@@ -56,13 +53,5 @@ Rectangle {
             objectName: "Default Material"
             diffuseColor: "#4aee45"
         }
-    }
-
-    Text {
-        text: qsTr("Hello Qt3DDemo")
-        anchors.top: parent.top
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.topMargin: 100
-        font.family: Constants.font.family
     }
 }
