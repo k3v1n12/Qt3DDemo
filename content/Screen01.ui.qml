@@ -10,6 +10,7 @@ import QtQuick.Controls 6.5
 import QtQuick3D 6.5
 import Qt3DDemo
 import Quick3DAssets.Scene
+import QtQuick.Timeline 1.0
 
 Rectangle {
     width: Constants.width
@@ -40,17 +41,17 @@ Rectangle {
                 scale.x: 0.375
                 castsShadow: true
                 brightness: 5.49
-                eulerRotation.z: 62.44928
-                eulerRotation.y: -46.29249
-                eulerRotation.x: 3.85748
+                eulerRotation.z: 62.65553
+                eulerRotation.y: -43.68352
+                eulerRotation.x: 5.20862
                 z: 749.1521
             }
 
             PerspectiveCamera {
                 id: sceneCamera
                 x: 0
-                y: 0
-                z: 350
+                y: 50
+                z: 200
             }
 
             Scene {
@@ -90,6 +91,32 @@ Rectangle {
             id: defaultMaterial
             objectName: "Default Material"
             diffuseColor: "#4aee45"
+        }
+    }
+
+    Timeline {
+        id: timeline
+        animations: [
+            TimelineAnimation {
+                id: timelineAnimation
+                loops: 1
+                running: true
+                duration: 1000
+                to: 1000
+                from: 0
+            }
+        ]
+        endFrame: 1000
+        startFrame: 0
+        enabled: true
+
+        KeyframeGroup {
+            target: sceneCamera
+            property: "z"
+            Keyframe {
+                frame: 799
+                value: 350
+            }
         }
     }
 }
